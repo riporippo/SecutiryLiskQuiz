@@ -6,4 +6,4 @@
 
 ### 使用技術
 * flask  
-* TailWindCSS  
+* bootstrap  
