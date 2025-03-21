@@ -15,5 +15,40 @@
                 </a>
             </div>
         </div>
+    <div class="text-center mt-4">
+        <div class="radio-box">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input custom-radio" type="radio" id="true" name="answer" value="1" checked>
+                <label class="form-check-label fs-4" for="true">左が正規である．</label>
+            </div>
+        </div>
+        <div class="radio-box">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input custom-radio" type="radio" id="false" name="answer" value="2">
+                <label class="form-check-label fs-4" for="false">左が正規である．</label>
+            </div>
+        </div>
+    </div>
 </div>
+
+<style>
+    .custom-radio {
+        transform: scale(1.8);
+        margin-right: 10px;
+    }
+
+    .radio-box {
+        border: 10px solid black; /* 10pxの黒線 */
+        border-radius: 15px; /* 角を丸める */
+        padding: 20px; /* 余白を作る */
+        display: inline-block; /* 横並びにする */
+        width: fit-content; /* 必要な幅だけ確保 */
+        margin: 10px; /* 枠間の間隔を調整 */
+    }
+
+    /* ラベルの文字を大きくする */
+    .form-check-label {
+        font-size: 1.5rem;
+    }
+</style>
 {% endblock %}
