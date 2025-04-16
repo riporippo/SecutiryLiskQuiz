@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-center mb-4">間違い探しゲーム</h2>
+<p class="text-center">右側の偽サイト画像の中から、正規サイトと異なる部分をクリックしてください。</p>
+
+<div class="row justify-content-center">
+    <div class="col-md-5 text-center">
+        <h5>正規サイト</h5>
+        <img src="{{ url_for('static', filename=data.image_legit) }}" class="img-fluid border" alt="正規サイト">
+    </div>
+    <div class="col-md-5 text-center">
+        <h5>偽サイト（クリックして間違いを探そう！）</h5>
+        <div class="position-relative">
+            <img src="{{ url_for('static', filename=data.image_phishing) }}" id="phishingImage" class="img-fluid border" alt="偽サイト">
+            <canvas id="clickCanvas" class="position-absolute top-0 start-0" style="pointer-events: none;"></canvas>
+        </div>
+    </div>
+</div>
+
+<p id="resultMessage" class="text-center mt-4 fs-5"></p>
+
+<script>
+    const differences = {{ data.differences | tojson }};
+    const image = document.getElementById("phishingImage");
+    const canvas = document.getElementById("clickCanvas");
+    const ctx = canvas.getContext("2d");
+    const resultMessage = document.getElementById("resultMessage");
+
+    image.onload = function () {
+        canvas.width = image.clientWidth;
+        canvas.height = image.clientHeight;
+    };
+
+    image.addEventListener("click", function (e) {
+        const rect = image.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        let found = false;
+        for (const diff of differences) {
+            const dx = x - diff.x;
+            const dy = y - diff.y;
+            if (Math.sqrt(dx * dx + dy * dy) <= diff.radius) {
+                found = true;
+                break;
+            }
+        }
+
+        if (found) {
+            resultMessage.innerText = "🎯 正解！間違いを見つけました！";
+            resultMessage.classList.remove("text-danger");
+            resultMessage.classList.add("text-success");
+        } else {
+            resultMessage.innerText = "❌ 残念、不正解です…";
+            resultMessage.classList.remove("text-success");
+            resultMessage.classList.add("text-danger");
+        }
+
+        // クリック位置を円で表示
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.arc(x, y, 10, 0, 2 * Math.PI);
+        ctx.strokeStyle = found ? "green" : "red";
+        ctx.lineWidth = 3;
+        ctx.stroke();
+    });
+</script>
+{% endblock %}
