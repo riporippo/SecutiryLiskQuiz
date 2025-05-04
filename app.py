@@ -27,28 +27,5 @@ def question():
     }
     return render_template('question.html', data=question_data)
 
-
-# 個別の問題ページ
-@app.route('/mondai-1')
-def question_1():
-    return render_template('question/1.html')
-
-@app.route('/mondai-2')
-def question_2():
-    return render_template('question/2.html')
-
-@app.route('/mondai-3')
-def question_3():
-    return render_template('question/3.html')
-
-@app.route('/mondai-4')
-def question_4():
-    return render_template('question/4.html')
-
-@app.route('/mondai-5')
-def question_5():
-    return render_template('question/5.html')
-
-
 if __name__ == "__main__":
     app.run(debug=True,port= 5015)

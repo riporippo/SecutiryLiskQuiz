@@ -1,16 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2 class="text-center mb-4">間違い探しゲーム</h2>
-<p class="text-center">右側の偽サイト画像の中から、正規サイトと異なる部分をクリックしてください。</p>
+<h2 class="text-center mb-4"></h2>
+<p class="text-center">この写真のどこを見ると，この人が今どこにいるのか推測できるかな？</p>
 
 <div class="row justify-content-center">
     <div class="col-md-5 text-center">
-        <h5>正規サイト</h5>
-        <img src="{{ url_for('static', filename=data.image_legit) }}" class="img-fluid border" alt="正規サイト">
-    </div>
-    <div class="col-md-5 text-center">
-        <h5>偽サイト（クリックして間違いを探そう！）</h5>
+        <h5>（怪しい場所をクリックしてみよう！）</h5>
         <div class="position-relative">
             <img src="{{ url_for('static', filename=data.image_phishing) }}" id="phishingImage" class="img-fluid border" alt="偽サイト">
             <canvas id="clickCanvas" class="position-absolute top-0 start-0" style="pointer-events: none;"></canvas>
