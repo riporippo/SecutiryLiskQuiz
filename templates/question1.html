@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-center mb-4"></h2>
+<p class="text-center">この写真をSNSに挙げたら簡単に居場所を特定されてしまうらしい！<br>
+    画像のどこに危険性が潜んでいるのかな？</p>
+
+<div class="row justify-content-center">
+    <div class="col-md-5 text-center">
+        <img src="{{ url_for('static', filename='images/question_1.jpg') }}" class="img-fluid border" alt="問題1">
+    </div>
+</div>
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-5">
+        <form action="{{ url_for('result') }}" method="POST">
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="radio" name="answer" id="answer1" value="1" required>
+                <label class="form-check-label" for="answer1">
+                    雲の配置
+                </label>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="radio" name="answer" id="answer2" value="2">
+                <label class="form-check-label" for="answer2">
+                    電柱
+                </label>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="radio" name="answer" id="answer3" value="3">
+                <label class="form-check-label" for="answer3">
+                    洋服
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary">送信</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
