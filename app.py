@@ -139,6 +139,17 @@ def result8():
                          user_answer=answer_text,
                          correct_answer="複数の異なる認証要素を使って本人確認を行う仕組み")
 
+@app.route('/result9', methods=['POST'])
+def result4():
+    user_answer = request.form.get('answer')
+    pattern = r'(?=.*url|URL)(?=.*(異なる|違う|ない|)).*'
+    # 正規表現で「url」と「異なる」または「違う」が含まれているかチェック
+    is_correct = bool(re.search(pattern, user_answer))
+    return render_template('result9.html', 
+                         is_correct=is_correct,
+                         user_answer=user_answer,
+                         correct_answer="urlが異なる")
+
 @app.route('/question1')
 def question1():
     return render_template('question1.html')

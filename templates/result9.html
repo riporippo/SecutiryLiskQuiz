@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4">結果</h2>
+                    
+                    {% if is_correct %}
+                    <div class="alert alert-success text-center">
+                        <h4 class="alert-heading">正解です！</h4>
+                        <p class="mb-0">あなたの答え: {{ user_answer }}</p>
+                        <p class="mb-3">他の解答例： {{ correct_answer }}</p>
+                        <p class="mb-0">フィッシングサイトは本物そっくりに作られていて、<br>見た目で判断するのはとても難しいです。
+                            <br>しかし、URLを確認することでフィッシングサイトかどうかを見分けることができます。</p>
+                        <div class="row justify-content-center mt-4">
+                            <div class="col-md-6 text-center">
+                                <img src="{{ url_for('static', filename='images/phishing-site.jpg') }}" class="img-fluid border" alt="画像1">
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <img src="{{ url_for('static', filename='images/no-phishing-site.jpg') }}" class="img-fluid border" alt="画像2">
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="alert alert-danger text-center">
+                        <h4 class="alert-heading">不正解です</h4>
+                        <p class="mb-0">あなたの答え: {{ user_answer }}</p>
+                        <p class="mb-3">正解例: {{ correct_answer }}</p>
+                        <p class="mb-0">フィッシングサイトは本物そっくりに作られていて、<br>見た目で判断するのはとても難しいです。
+                            <br>しかし、URLを確認することでフィッシングサイトかどうかを見分けることができます。</p>
+                        <div class="row justify-content-center mt-4">
+                            <div class="col-md-6 text-center">
+                                <img src="{{ url_for('static', filename='images/phishing-site.jpg') }}" class="img-fluid border" alt="画像1">
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <img src="{{ url_for('static', filename='images/no-phishing-site.jpg') }}" class="img-fluid border" alt="画像2">
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="text-center mt-4">
+                        <a href="/" class="btn btn-primary">問題一覧に戻る</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
