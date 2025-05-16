@@ -2,34 +2,34 @@
 
 {% block content %}
 <h2 class="text-center mb-4"></h2>
-<p class="text-center">問題：スマートフォンやパソコンを安全に使うために最も適切なことは次のうちどれかな</p>
+<p class="text-center">問題：多要素認証とは何でしょうか？最も当てはまるものを選んでください</p>
 
 
 <div class="row justify-content-center mt-4">
     <div class="col-md-5">
-        <form action="{{ url_for('result5') }}" method="POST">
+        <form action="{{ url_for('result8') }}" method="POST">
             <div class="form-check mb-3">
                 <input class="form-check-input" type="radio" name="answer" id="answer1" value="1" required>
                 <label class="form-check-label" for="answer1">
-                    なにもしない
+                    パスワードを2回入力することで安全性を高める方法
                 </label>
             </div>
             <div class="form-check mb-3">
                 <input class="form-check-input" type="radio" name="answer" id="answer2" value="2">
                 <label class="form-check-label" for="answer2">
-                    スマートフォンやパソコン本体のOSのバージョンだけ最新にする
+                    1つの方法だけで本人確認を行う仕組み
                 </label>
             </div>
             <div class="form-check mb-3">
                 <input class="form-check-input" type="radio" name="answer" id="answer3" value="3">
                 <label class="form-check-label" for="answer3">
-                    スマートフォンやパソコン本体のOSのバージョンに加え、アプリやソフト、ネットにつながるIT機器も最新の状態にしておく
+                    複数の異なる認証要素を使って本人確認を行う仕組み
                 </label>
             </div>
             <div class="form-check mb-3">
                 <input class="form-check-input" type="radio" name="answer" id="answer4" value="4">
                 <label class="form-check-label" for="answer4">
-                    神に願う
+                    アプリの自動ログイン機能のこと
                 </label>
             </div>
             <button type="submit" class="btn btn-primary">送信</button>

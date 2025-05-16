@@ -60,39 +60,84 @@ def result3():
 
 @app.route('/result4', methods=['POST'])
 def result4():
-    user_answer = int(request.form.get('answer'))
-    correct_answer = 2  # 正解の値
-    is_correct = (user_answer == correct_answer)
-    
-    # 選択された答えの説明を設定
-    answer_text = {
-        1: "選択肢1",
-        2: "選択肢2",
-        3: "選択肢3"
-    }.get(user_answer, "不明")
-    
+    user_answer = request.form.get('answer')
+    pattern = r'(?=.*url)(?=.*(異なる|違う|ない|)).*'
+    # 正規表現で「url」と「異なる」または「違う」が含まれているかチェック
+    is_correct = bool(re.search(pattern, user_answer))
     return render_template('result4.html', 
                          is_correct=is_correct,
-                         user_answer=answer_text,
-                         correct_answer="正解の選択肢")
+                         user_answer=user_answer,
+                         correct_answer="urlが異なる")
 
 @app.route('/result5', methods=['POST'])
 def result5():
     user_answer = int(request.form.get('answer'))
-    correct_answer = 2  # 正解の値
+    correct_answer = 3  # 正解の値
     is_correct = (user_answer == correct_answer)
     
     # 選択された答えの説明を設定
     answer_text = {
-        1: "選択肢1",
-        2: "選択肢2",
-        3: "選択肢3"
+        1: "なにもしない",
+        2: "スマートフォンやパソコン本体のOSのバージョンだけ最新にする",
+        3: "スマートフォンやパソコン本体のOSのバージョンに加え、アプリやソフト、ネットにつながるIT機器も最新の状態にしておく",
+        4: "神に願う"
     }.get(user_answer, "不明")
-    
     return render_template('result5.html', 
                          is_correct=is_correct,
                          user_answer=answer_text,
-                         correct_answer="正解の選択肢")
+                         correct_answer="スマートフォンやパソコン本体のOSのバージョンに加え、アプリやソフト、ネットにつながるIT機器も最新の状態にしておく")
+
+@app.route('/result6', methods=['POST'])
+def result6():
+    user_answer = request.form.getlist('answer')
+    correct_answer = {"2", "3"}  # 正解の値
+    is_correct = correct_answer == set(user_answer)
+    answer_text_map = {
+        "1": "お父さんの生年月日を使う",
+        "2": "パスワードを使いまわさない",
+        "3": "パスワードは紙やパスワード管理アプリで安全に保管",
+        "4": "パスワードの定期変更"
+    }
+    selected_answers = [answer_text_map.get(ans, "不明") for ans in user_answer]
+    correct_answer_text = [answer_text_map[ans] for ans in correct_answer]
+    return render_template('result6.html', 
+                         is_correct=is_correct,
+                         user_answer=selected_answers,
+                         correct_answer=correct_answer_text)
+
+@app.route('/result7', methods=['POST'])
+def result7():
+    user_answer = int(request.form.get('answer'))
+    correct_answer = 4  # 正解の値
+    is_correct = (user_answer == correct_answer)
+    
+    # 選択された答えの説明を設定
+    answer_text = {
+        1: "フィッシング",
+        2: "スキミング",
+        3: "ブルートフォースアタック",
+        4: "ショルダーハッキング"
+    }.get(user_answer, "不明")
+    return render_template('result7.html', 
+                         is_correct=is_correct,
+                         user_answer=answer_text,
+                         correct_answer="ショルダーハッキング")
+
+@app.route('/result8', methods=['POST'])
+def result8():
+    user_answer = int(request.form.get('answer'))
+    correct_answer = 3  # 正解の値
+    is_correct = (user_answer == correct_answer)
+    answer_text = {
+        1: "パスワードを2回入力することで安全性を高める方法",
+        2: "1つの方法だけで本人確認を行う仕組み",
+        3: "複数の異なる認証要素を使って本人確認を行う仕組み",
+        4: "アプリの自動ログイン機能のこと"
+    }.get(user_answer, "不明")
+    return render_template('result8.html', 
+                         is_correct=is_correct,
+                         user_answer=answer_text,
+                         correct_answer="複数の異なる認証要素を使って本人確認を行う仕組み")
 
 @app.route('/question1')
 def question1():
@@ -113,6 +158,24 @@ def question4():
 @app.route('/question5')
 def question5():
     return render_template('question5.html')
+
+@app.route('/question6')
+def question6():
+    return render_template('question6.html')
+
+@app.route('/question7')
+def question7():
+    return render_template('question7.html')
+
+@app.route('/question8')
+def question8():
+    return render_template('question8.html')
+
+@app.route('/question9')
+def question9():
+    return render_template('question9.html')
+
+
 
 if __name__ == "__main__":
     app.run(debug=True,port= 5015)

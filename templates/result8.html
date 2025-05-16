@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4">結果</h2>
+                    
+                    {% if is_correct %}
+                    <div class="alert alert-success text-center">
+                        <h4 class="alert-heading">正解です！</h4>
+                        <p class="mb-3">あなたの答え: {{ user_answer }}</p>
+                        <p class="mb-0">解説：多要素認証（MFA）は、「知識（パスワード）」「所持（スマホやトークン）」「生体情報（指紋や顔）」など異なる種類の認証要素を2つ以上組み合わせて、なりすましを防ぐ方法です。<br>選択肢1は2段階認証段階認証と言います。</p>
+                    </div>
+                    {% else %}
+                    <div class="alert alert-danger text-center">
+                        <h4 class="alert-heading">不正解です</h4>
+                        <p class="mb-0">あなたの答え: {{ user_answer }}</p>
+                        <p class="mb-3">正解: {{ correct_answer }}</p>
+                        <p class="mb-0">解説：多要素認証（MFA）は、「知識（パスワード）」「所持（スマホやトークン）」「生体情報（指紋や顔）」など異なる種類の認証要素を2つ以上組み合わせて、なりすましを防ぐ方法です。<br>選択肢1は2段階認証段階認証と言います。</p>
+                    </div>
+                    {% endif %}
+
+                    <div class="text-center mt-4">
+                        <a href="/" class="btn btn-primary">問題一覧に戻る</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
