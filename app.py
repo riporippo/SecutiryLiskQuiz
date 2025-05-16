@@ -61,7 +61,7 @@ def result3():
 @app.route('/result4', methods=['POST'])
 def result4():
     user_answer = request.form.get('answer')
-    pattern = r'(?=.*url)(?=.*(異なる|違う|ない|)).*'
+    pattern = r'(?=.*url|URL)(?=.*(異なる|違う|ない|)).*'
     # 正規表現で「url」と「異なる」または「違う」が含まれているかチェック
     is_correct = bool(re.search(pattern, user_answer))
     return render_template('result4.html', 
