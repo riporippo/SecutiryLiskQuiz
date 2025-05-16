@@ -7,7 +7,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-5 text-center">
-        <img id = "targetImage" src="{{ url_for('static', filename='images/phishing-site.jpg') }}" class="img-fluid border" alt="問題4">
+        <img id = "targetImage" src="{{ url_for('static', filename='images/phishing-site.jpg') }}" class="img-fluid border zoomable" alt="問題4">
     </div>
 </div>
 
@@ -23,4 +23,8 @@
         </form>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/zoom.js') }}"></script>
 {% endblock %}
