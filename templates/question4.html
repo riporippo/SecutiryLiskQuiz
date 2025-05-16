@@ -3,11 +3,13 @@
 {% block content %}
 <h2 class="text-center mb-4"></h2>
 <p class="text-center">友達からフィッシングサイトの画像が送られてきたよ<br>
-　　　どこを見ればこの画像がフィッシングサイトということが確信できるかな？</p>
+どこを見ればこの画像がフィッシングサイトということが確信できるかな？</p>
 
 <div class="row justify-content-center">
     <div class="col-md-5 text-center">
-        <img id = "targetImage" src="{{ url_for('static', filename='images/phishing-site.jpg') }}" class="img-fluid border" alt="問題4">
+        <div class="zoom-container">
+            <img id="targetImage" src="{{ url_for('static', filename='images/phishing-site.jpg') }}" class="img-fluid border zoomable" alt="問題4">
+        </div>
     </div>
 </div>
 
@@ -23,4 +25,8 @@
         </form>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/zoom.js') }}"></script>
 {% endblock %}
