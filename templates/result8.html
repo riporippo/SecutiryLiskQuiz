@@ -12,14 +12,14 @@
                     <div class="alert alert-success text-center">
                         <h4 class="alert-heading">正解です！</h4>
                         <p class="mb-3">あなたの答え: {{ user_answer }}</p>
-                        <p class="mb-0">解説：多要素認証（MFA）は、「知識（パスワード）」「所持（スマホやトークン）」「生体情報（指紋や顔）」など異なる種類の認証要素を2つ以上組み合わせて、なりすましを防ぐ方法です。<br>選択肢1は2段階認証段階認証と言います。</p>
+                        <p class="mb-0">解説：２要素認証が無い場合、パスワードを入手した攻撃者はそのままログインできてしまいます。<br>2要素認証は設定しましょう！</p>
                     </div>
                     {% else %}
                     <div class="alert alert-danger text-center">
                         <h4 class="alert-heading">不正解です</h4>
                         <p class="mb-0">あなたの答え: {{ user_answer }}</p>
                         <p class="mb-3">正解: {{ correct_answer }}</p>
-                        <p class="mb-0">解説：多要素認証（MFA）は、「知識（パスワード）」「所持（スマホやトークン）」「生体情報（指紋や顔）」など異なる種類の認証要素を2つ以上組み合わせて、なりすましを防ぐ方法です。<br>選択肢1は2段階認証段階認証と言います。</p>
+                        <p class="mb-0">解説：２要素認証が無い場合、パスワードを入手した攻撃者はそのままログインできてしまいます。<br>2要素認証は設定しましょう！</p>
                     </div>
                     {% endif %}
 
