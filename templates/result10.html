@@ -33,5 +33,46 @@
             </div>
         </div>
     </div>
+    <!--正解 or 不正解 をモーダル表示-->
+    {% if is_correct %}
+    <div class="modal fade" id="questionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content custom-modal-content">
+                <div class="modal-body d-flex justify-content-center align-items-center">
+                    <h1 class="big-red-x display-1">⭕</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="modal fade" id="questionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content custom-modal-content">
+                <div class="modal-body d-flex justify-content-center align-items-center">
+                    <h1 class="big-red-x display-1">❌</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 </div>
-{% endblock %} 
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded",function(){
+        const modalElement = document.getElementById('questionModal');
+        const modal = new bootstrap.Modal(modalElement);
+
+        modal.show();
+
+        setTimeout(() => {
+            modalElement.classList.add('fade-out');
+            setTimeout(() => {
+                modal.hide();
+                modalElement.classList.remove('fade-out');
+            },200);
+        },3000);
+    });
+</script>
+{% endblock %}

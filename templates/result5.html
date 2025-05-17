@@ -12,12 +12,14 @@
                     <div class="alert alert-success text-center">
                         <h4 class="alert-heading">正解です！</h4>
                         <p class="mb-0">あなたの答え: {{ user_answer }}</p>
+                        <p class="mb-0">解説：ウイルスや攻撃から守るため。<br>古いバージョンには「弱点（脆弱性）」があり、悪用されることがあります。<br>アップデートすることでその弱点が直され、安全に使えるようになります。</p>
                     </div>
                     {% else %}
                     <div class="alert alert-danger text-center">
                         <h4 class="alert-heading">不正解です</h4>
                         <p class="mb-0">あなたの答え: {{ user_answer }}</p>
                         <p class="mb-0">正解: {{ correct_answer }}</p>
+                        <p class="mb-0">解説：ウイルスや攻撃から守るため。<br>古いバージョンには「弱点（脆弱性）」があり、悪用されることがあります。<br>アップデートすることでその弱点が直され、安全に使えるようになります。</p>
                     </div>
                     {% endif %}
 

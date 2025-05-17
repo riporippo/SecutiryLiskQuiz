@@ -12,12 +12,14 @@
                     <div class="alert alert-success text-center">
                         <h4 class="alert-heading">正解です！</h4>
                         <p class="mb-0">あなたの答え: {{ user_answer }}</p>
+                        <p class="mb-0">解説：フィッシング：偽のウェブサイトやメールなどで個人情報をだまし取る手口です。<br>スキミング：カード情報を不正に読み取る手口です。<br>ブルートフォースアタック：パスワードなどを総当たりで試して突破しようとする攻撃です。</p>
                     </div>
                     {% else %}
                     <div class="alert alert-danger text-center">
                         <h4 class="alert-heading">不正解です</h4>
                         <p class="mb-0">あなたの答え: {{ user_answer }}</p>
                         <p class="mb-0">正解: {{ correct_answer }}</p>
+                         <p class="mb-0">解説：フィッシング：偽のウェブサイトやメールなどで個人情報をだまし取る手口です。<br>スキミング：カード情報を不正に読み取る手口です。<br>ブルートフォースアタック：パスワードなどを総当たりで試して突破しようとする攻撃です。</p>
                     </div>
                     {% endif %}
 
