@@ -77,3 +77,32 @@ body {
     left: 0;
     top: 0;
 }
+
+/* 背景透明・枠なし */
+.custom-modal-content {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* 赤くて大きな「×」 */
+.big-red-x {
+  size: 1000rem;      /* 必要に応じてサイズ調整 */
+  font-weight: bold;
+}
+
+/* モーダル全体のフェード制御 */
+.modal {
+  background-color: transparent;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.modal.fade-out {
+  opacity: 0;
+}
+
+/* モーダルの背景（黒い半透明の部分）も透明にしたい場合 */
+.modal-backdrop.show {
+  background-color: transparent;
+}
