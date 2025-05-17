@@ -7,21 +7,34 @@
             <div class="card shadow-sm">
                 <div class="card-body p-4">
                     <h2 class="text-center mb-4">結果</h2>
-                    
+
                     {% if is_correct %}
                     <div class="alert alert-success text-center">
                         <h4 class="alert-heading">正解です！</h4>
-                        <p class="mb-3">あなたの答え: {{ user_answer }}</p>
-                        <p class="mb-0">解説：公式サポートをかたる “偽警告（サポート詐欺）” です。電話したり、詳細のボタンをクリックすると、遠隔操作や高額請求など二次被害に遭う危険があります。<br>慌てずにブラウザを閉じましょう！</p>
-                    </div>
+                        <div class="fw-bold mb-1">あなたの答え</div>
+                        <p class="mb-0">{{ user_answer }}</p>
+                        <p class="mb-3">
+                        <div class="fw-bold mb-1 text-center">解説</div>
+                            <div class="mb-3 text-center">
+                                公式サポートをかたる “偽警告（サポート詐欺）” です。電話したり、詳細のボタンをクリックすると、遠隔操作や高額請求など二次被害に遭う危険があります。<br>慌てずにブラウザを閉じましょう！
+                            </div>
+                        </div>
                     {% else %}
                     <div class="alert alert-danger text-center">
                         <h4 class="alert-heading">不正解です</h4>
-                        <p class="mb-0">あなたの答え: {{ user_answer }}</p>
-                        <p class="mb-0">正解: {{ correct_answer }}</p>
-                        <p class="mb-0">解説：公式サポートをかたる “偽警告（サポート詐欺）” です。電話したり、詳細のボタンをクリックすると、遠隔操作や高額請求など二次被害に遭う危険があります。<br>慌てずにブラウザを閉じましょう！</p>
-                    </div>
+                        <div class="fw-bold mb-1">あなたの答え</div>
+                        <p class="mb-0">{{ user_answer }}</p>
+                        <p class="mb-3">
+                        <div class="fw-bold mb-1">正解</div>
+                        <p class="mb-0">{{ correct_answer }}</p>
+                        <p class="mb-3">
+                            <div class="fw-bold mb-1 text-center">解説</div>
+                            <div class="mb-3 text-center">
+                                公式サポートをかたる “偽警告（サポート詐欺）” です。電話したり、詳細のボタンをクリックすると、遠隔操作や高額請求など二次被害に遭う危険があります。<br>慌てずにブラウザを閉じましょう！
+                            </div>
+                        </div>
                     {% endif %}
+                
 
                     <div class="text-center mt-4">
                         <a href="/" class="btn btn-primary">問題一覧に戻る</a>
