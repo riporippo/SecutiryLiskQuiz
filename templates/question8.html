@@ -2,7 +2,7 @@
 
 {% block content %}
 <h2 class="text-center mb-4"></h2>
-<p class="text-center">問題：多要素認証とは何でしょうか？最も当てはまるものを選んでください</p>
+<p class="text-center">問題：パスワードは強固だが、2要素認証を設定していなかったユーザーが、フィッシングメール でパスワードを盗まれた。最も起こりやすい結果はどれか？</p>
 
 
 <div class="row justify-content-center mt-4">
@@ -11,25 +11,25 @@
             <div class="form-check mb-3">
                 <input class="form-check-input" type="radio" name="answer" id="answer1" value="1" required>
                 <label class="form-check-label" for="answer1">
-                    パスワードを2回入力することで安全性を高める方法
+                    攻撃者のログイン試行は追加コード要求で失敗し、被害は出ない
                 </label>
             </div>
             <div class="form-check mb-3">
                 <input class="form-check-input" type="radio" name="answer" id="answer2" value="2">
                 <label class="form-check-label" for="answer2">
-                    1つの方法だけで本人確認を行う仕組み
+                    パスワードが漏えいしただけでログインは阻止され、攻撃者は諦める
                 </label>
             </div>
             <div class="form-check mb-3">
                 <input class="form-check-input" type="radio" name="answer" id="answer3" value="3">
                 <label class="form-check-label" for="answer3">
-                    複数の異なる認証要素を使って本人確認を行う仕組み
+                    攻撃者が即座にログインし、アカウントが乗っ取られる
                 </label>
             </div>
             <div class="form-check mb-3">
                 <input class="form-check-input" type="radio" name="answer" id="answer4" value="4">
                 <label class="form-check-label" for="answer4">
-                    アプリの自動ログイン機能のこと
+                    サービス側が自動でパスワードを変更し、利用者に通知する
                 </label>
             </div>
             <button type="submit" class="btn btn-primary">送信</button>
