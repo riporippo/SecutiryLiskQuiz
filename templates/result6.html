@@ -7,19 +7,50 @@
             <div class="card shadow-sm">
                 <div class="card-body p-4">
                     <h2 class="text-center mb-4">結果</h2>
-                    
+
                     {% if is_correct %}
-                    <div class="alert alert-success text-center">
-                        <h4 class="alert-heading">正解です！</h4>
-                        <p class="mb-0">あなたの答え: {{ user_answer }}</p>
-                        <p class="mb-0">解説：パスワードに誕生日などの個人情報を使うのは推測されやすく危険です。使い回しも避け、サービスごとに異なるパスワードを設定しましょう。忘れないためには、紙に書いて安全な場所に保管するか、パスワード管理アプリを活用するのが有効です。また、定期的な変更は現在では推奨されておらず、漏えいが判明した場合に速やかに変更することが重要です。</p>
+                    <div class="alert alert-success">
+                        <h4 class="alert-heading text-center mb-3">正解です！</h4>
+                        <div class="mb-3">
+                            <div class="fw-bold mb-1 text-center">あなたの答え</div>
+                            <ul class="mb-0 ps-3">
+                                {% for answer in user_answer %}
+                                <li>{{ answer }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="mb-3">
+                            <div class="fw-bold text-center mb-1">解説</div>
+                            <div class="text-center">
+                                パスワードに誕生日などの個人情報を使うのは推測されやすく危険です。使い回しも避け、サービスごとに異なるパスワードを設定しましょう。忘れないためには、紙に書いて安全な場所に保管するか、パスワード管理アプリを活用するのが有効です。また、定期的な変更は現在では推奨されておらず、漏えいが判明した場合に速やかに変更することが重要です。
+                            </div>
+                        </div>
                     </div>
                     {% else %}
-                    <div class="alert alert-danger text-center">
-                        <h4 class="alert-heading">不正解です</h4>
-                        <p class="mb-0">あなたの答え: {{ user_answer }}</p>
-                        <p class="mb-0">正解: {{ correct_answer }}</p>
-                        <p class="mb-0">解説：パスワードに誕生日などの個人情報を使うのは推測されやすく危険です。使い回しも避け、サービスごとに異なるパスワードを設定しましょう。忘れないためには、紙に書いて安全な場所に保管するか、パスワード管理アプリを活用するのが有効です。また、定期的な変更は現在では推奨されておらず、漏えいが判明した場合に速やかに変更することが重要です。</p>
+                    <div class="alert alert-danger">
+                        <h4 class="alert-heading text-center mb-3">不正解です</h4>
+                        <div class="mb-3">
+                            <div class="fw-bold mb-1 text-center">あなたの答え</div>
+                            <ul class="mb-0 ps-3">
+                                {% for answer in user_answer %}
+                                <li>{{ answer }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="mb-3">
+                            <div class="fw-bold mb-1 text-center">正解</div>
+                            <ul class="mb-0 ps-3">
+                                {% for answer in correct_answer %}
+                                <li>{{ answer }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="mb-3">
+                            <div class="fw-bold text-center mb-1">解説</div>
+                            <div class="text-center">
+                                パスワードに誕生日などの個人情報を使うのは推測されやすく危険です。使い回しも避け、サービスごとに異なるパスワードを設定しましょう。忘れないためには、紙に書いて安全な場所に保管するか、パスワード管理アプリを活用するのが有効です。また、定期的な変更は現在では推奨されておらず、漏えいが判明した場合に速やかに変更することが重要です。
+                            </div>
+                        </div>
                     </div>
                     {% endif %}
 

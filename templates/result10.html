@@ -11,18 +11,45 @@
                     {% if is_correct %}
                     <div class="alert alert-success text-center">
                         <h4 class="alert-heading">正解です！</h4>
-                        <p class="mb-3">あなたの答え: {{ user_answer }}</p>
+                        <div class="fw-bold mb-1">あなたの答え</div>
+                        <div class="text-start d-inline-block">
+                            <ul class="text-start">
+                            {% for answer in user_answer%}
+                            <li>{{answer}}</li>
+                            {% endfor %}
+                        </ul>
+                    　　</div>
                         <p class="mb-0">解説：フェイクニュースは本物のニュースと見分けが付かないものがあります。<br>
                         色々な情報源を確認して情報が正しいのか確認しましょう。</p>
                     </div>
                     {% else %}
                     <div class="alert alert-danger text-center">
                         <h4 class="alert-heading">不正解です</h4>
-                        <p class="mb-0">あなたの答え: {{ user_answer }}</p>
-                        <p class="mb-3">正解: {{ correct_answer }}</p>
-                        <p class="mb-0"><p class="mb-0">解説：フェイクニュースは本物のニュースと見分けが付かないものがあります。<br>
-                        色々な情報源を確認して情報が正しいのか確認しましょう。</p>
+                        <div class="fw-bold mb-1">あなたの答え</div>
+                        <div class="text-start d-inline-block">
+                            <ul class="text-start">
+                            {% for answer in user_answer%}
+                            <li>{{answer}}</li>
+                            {% endfor %}
+                        </ul>
+                    　　</div>
+                        
+                        <div class="fw-bold mb-1">正解</div>
+                        <div class="text-start d-inline-block">
+                            <ul class="text-start">
+                            {% for answer in correct_answer%}
+                            <li>{{answer}}</li>
+                            {% endfor %}
+                        </ul>
+                    　　</div>
+                        <p class="mb-0">
+                        <div class="fw-bold mb-1 text-center">解説</div>
+                        <div class="mb-3 text-center">
+                        フェイクニュースは本物のニュースと見分けが付かないものがあります。<br>
+                        色々な情報源を確認して情報が正しいのか確認しましょう。
+                        </div>
                     </div>
+
                     {% endif %}
 
                     <div class="text-center mt-4">
