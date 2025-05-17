@@ -43,20 +43,20 @@ def result2():
 @app.route('/result3', methods=['POST'])
 def result3():
     user_answer = int(request.form.get('answer'))
-    correct_answer = 2  # 正解の値
+    correct_answer = 3  # 正解の値
     is_correct = (user_answer == correct_answer)
     
     # 選択された答えの説明を設定
     answer_text = {
-        1: "選択肢1",
-        2: "選択肢2",
-        3: "選択肢3"
+        1: "画面は操作せず，記載されているサポートに電話をかける",
+        2: "画面に表示されている詳細を確認する",
+        3: "ボタンを押してブラウザを閉じる"
     }.get(user_answer, "不明")
     
     return render_template('result3.html', 
                          is_correct=is_correct,
                          user_answer=answer_text,
-                         correct_answer="正解の選択肢")
+                         correct_answer="ボタンを押してブラウザを閉じる")
 
 @app.route('/result4', methods=['POST'])
 def result4():
@@ -129,15 +129,31 @@ def result8():
     correct_answer = 3  # 正解の値
     is_correct = (user_answer == correct_answer)
     answer_text = {
-        1: "パスワードを2回入力することで安全性を高める方法",
-        2: "1つの方法だけで本人確認を行う仕組み",
-        3: "複数の異なる認証要素を使って本人確認を行う仕組み",
-        4: "アプリの自動ログイン機能のこと"
+        1: "攻撃者のログイン試行は追加コード要求で失敗し、被害は出ない",
+        2: "パスワードが漏えいしただけでログインは阻止され、攻撃者は諦める",
+        3: "攻撃者が即座にログインし、アカウントが乗っ取られる",
+        4: "サービス側が自動でパスワードを変更し、利用者に通知する"
     }.get(user_answer, "不明")
     return render_template('result8.html', 
                          is_correct=is_correct,
                          user_answer=answer_text,
-                         correct_answer="複数の異なる認証要素を使って本人確認を行う仕組み")
+                         correct_answer="攻撃者が即座にログインし、アカウントが乗っ取られる")
+
+@app.route('/result9', methods=['POST'])
+def result9():
+    user_answer = int(request.form.get('answer'))
+    correct_answer = 1  # 正解の値
+    is_correct = (user_answer == correct_answer)
+    answer_text = {
+        1: "「サークルの LINE グループで集めたメンバー 30 人分の名前・電話番号・学生証写真を貼るので、名簿を Excel 形式に作成して。」",
+        2: "「公開されている政府統計の CSV を貼ります。主要指標をグラフにまとめて。」",
+        3: "「統計学の課題コードが動きません。エラーメッセージとソースを貼るので、原因を教えて。」",
+        4: "「レストランレビュー 3 件をコピーしたので、200 字以内で要約して。」"
+    }.get(user_answer, "不明")
+    return render_template('result9.html', 
+                         is_correct=is_correct,
+                         user_answer=answer_text,
+                         correct_answer="「サークルの LINE グループで集めたメンバー 30 人分の名前・電話番号・学生証写真を貼るので、名簿を Excel 形式に作成して。」")
 
 @app.route('/result9', methods=['POST'])
 def result9():
