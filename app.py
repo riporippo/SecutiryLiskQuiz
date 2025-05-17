@@ -155,6 +155,24 @@ def result9():
                          user_answer=answer_text,
                          correct_answer="「サークルの LINE グループで集めたメンバー 30 人分の名前・電話番号・学生証写真を貼るので、名簿を Excel 形式に作成して。」")
 
+@app.route('/result10', methods=['POST'])
+def result10():
+    user_answer = request.form.getlist('answer')
+    correct_answer = {"1", "3", "4"}  # 正解の値
+    is_correct = correct_answer == set(user_answer)
+    answer_text_map = {
+        "1": "「2016年の熊本地震で動物園からライオンが逃げた」というニュース",
+        "2": "「神戸市の小学校で教員間いじめ、カレー強要する映像に批判殺到」というニュース",
+        "3": "「2016年の米国大統領選挙の際、ローマ法王がトランプ氏を支持した」というニュース",
+        "4": "「新型コロナウイルスの影響でトイレットペーパーの多くが中国で生産されており、供給が止まる」というニュース"
+    }
+    selected_answers = [answer_text_map.get(ans, "不明") for ans in user_answer]
+    correct_answer_text = [answer_text_map[ans] for ans in correct_answer]
+    return render_template('result10.html', 
+                         is_correct=is_correct,
+                         user_answer=selected_answers,
+                         correct_answer=correct_answer_text)
+
 @app.route('/question1')
 def question1():
     return render_template('question1.html')
@@ -191,7 +209,9 @@ def question8():
 def question9():
     return render_template('question9.html')
 
-
+@app.route('/question10')
+def question10():
+    return render_template('question10.html')
 
 if __name__ == "__main__":
     app.run(debug=True,port= 5015)
