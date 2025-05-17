@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4">結果</h2>
+                    
+                    {% if is_correct %}
+                    <div class="alert alert-success text-center">
+                        <h4 class="alert-heading">正解です！</h4>
+                        <p class="mb-3">あなたの答え: {{ user_answer }}</p>
+                        <p class="mb-0">解説：フェイクニュースは本物のニュースと見分けが付かないものがあります。<br>
+                        色々な情報源を確認して情報が正しいのか確認しましょう。</p>
+                    </div>
+                    {% else %}
+                    <div class="alert alert-danger text-center">
+                        <h4 class="alert-heading">不正解です</h4>
+                        <p class="mb-0">あなたの答え: {{ user_answer }}</p>
+                        <p class="mb-3">正解: {{ correct_answer }}</p>
+                        <p class="mb-0"><p class="mb-0">解説：フェイクニュースは本物のニュースと見分けが付かないものがあります。<br>
+                        色々な情報源を確認して情報が正しいのか確認しましょう。</p>
+                    </div>
+                    {% endif %}
+
+                    <div class="text-center mt-4">
+                        <a href="/" class="btn btn-primary">問題一覧に戻る</a>
+                        <!-- <a href="/question10" class="btn btn-primary ms-2">次の問題へ</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
