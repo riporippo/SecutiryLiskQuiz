@@ -61,7 +61,7 @@ def result3():
 @app.route('/result4', methods=['POST'])
 def result4():
     user_answer = request.form.get('answer')
-    pattern = r'(?=.*url)(?=.*(異なる|違う|ない|)).*'
+    pattern = r'(?=.*url|URL)(?=.*(異なる|違う|ない|)).*'
     # 正規表現で「url」と「異なる」または「違う」が含まれているかチェック
     is_correct = bool(re.search(pattern, user_answer))
     return render_template('result4.html', 
@@ -154,6 +154,17 @@ def result9():
                          is_correct=is_correct,
                          user_answer=answer_text,
                          correct_answer="「サークルの LINE グループで集めたメンバー 30 人分の名前・電話番号・学生証写真を貼るので、名簿を Excel 形式に作成して。」")
+
+@app.route('/result9', methods=['POST'])
+def result9():
+    user_answer = request.form.get('answer')
+    pattern = r'(?=.*url|URL)(?=.*(異なる|違う|ない|)).*'
+    # 正規表現で「url」と「異なる」または「違う」が含まれているかチェック
+    is_correct = bool(re.search(pattern, user_answer))
+    return render_template('result9.html', 
+                         is_correct=is_correct,
+                         user_answer=user_answer,
+                         correct_answer="urlが異なる")
 
 @app.route('/question1')
 def question1():

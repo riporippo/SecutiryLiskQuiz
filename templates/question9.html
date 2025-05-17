@@ -4,6 +4,11 @@
 <h2 class="text-center mb-4"></h2>
 <p class="text-center">問題：次のうち、生成AIに送る内容として，もっとも不適切 なものはどれか。</p>
 
+<div class="row justify-content-center">
+    <div class="col-md-5 text-center">
+        <img id = "targetImage" src="{{ url_for('static', filename='images/phishing-site.jpg') }}" class="img-fluid border zoomable" alt="問題4">
+    </div>
+</div>
 
 <div class="row justify-content-center mt-4">
     <div class="col-md-5">
@@ -36,4 +41,8 @@
         </form>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/zoom.js') }}"></script>
 {% endblock %}

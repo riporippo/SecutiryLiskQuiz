@@ -55,3 +55,25 @@ body {
     color: green;
   }
   
+  #image-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+    z-index: 1000;
+    overflow: auto;
+}
+
+#image-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    user-select: none;
+    cursor: move;
+    position: relative;
+    left: 0;
+    top: 0;
+}

@@ -20,6 +20,17 @@
                         <p class="mb-0">あなたの答え: {{ user_answer }}</p>
                         <p class="mb-3">正解: {{ correct_answer }}</p>
                         <p class="mb-0">解説：第三者の個人情報（氏名・電話番号・顔写真）を本人の同意なく AI サービスへアップロードしており、プライバシー権の侵害・利用規約違反・個人情報保護法違反になり得る恐れがあります。</p>
+                        <p class="mb-3">正解例: {{ correct_answer }}</p>
+                        <p class="mb-0">フィッシングサイトは本物そっくりに作られていて、<br>見た目で判断するのはとても難しいです。
+                            <br>しかし、URLを確認することでフィッシングサイトかどうかを見分けることができます。</p>
+                        <div class="row justify-content-center mt-4">
+                            <div class="col-md-6 text-center">
+                                <img src="{{ url_for('static', filename='images/phishing-site.jpg') }}" class="img-fluid border" alt="画像1">
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <img src="{{ url_for('static', filename='images/no-phishing-site.jpg') }}" class="img-fluid border" alt="画像2">
+                            </div>
+                        </div>
                     </div>
                     {% endif %}
 
