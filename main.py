@@ -218,4 +218,4 @@ def question10():
     return render_template('question10.html')
 
 if __name__ == "__main__":
-    app.run(port=80)
+    app.run()
