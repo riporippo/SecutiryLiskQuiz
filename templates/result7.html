@@ -71,11 +71,18 @@
 {% block scripts %}
 <script>
     document.addEventListener("DOMContentLoaded",function(){
+        const isCorrect = {{ is_correct | tojson | safe }};
+        const audioCorrect = new Audio('/static/se/Ding_Dong.mp3');
+        const audioMistake = new Audio('/static/se/Buzzer.mp3');
         const modalElement = document.getElementById('questionModal');
         const modal = new bootstrap.Modal(modalElement);
 
         modal.show();
-
+        if (isCorrect){
+            audioCorrect.play();
+        }else{
+            audioMistake.play();
+        }
         setTimeout(() => {
             modalElement.classList.add('fade-out');
             setTimeout(() => {

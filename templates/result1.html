@@ -63,8 +63,8 @@
 <script>
     document.addEventListener("DOMContentLoaded",function(){
         const isCorrect = {{ is_correct | tojson | safe }};
-        const audioCorrect = new Audio('/static/se/correct.mp3');
-        const audioMistake = new Audio('/static/se/mistake.mp3');
+        const audioCorrect = new Audio('/static/se/Ding_Dong.mp3');
+        const audioMistake = new Audio('/static/se/Buzzer.mp3');
         const modalElement = document.getElementById('questionModal');
         const modal = new bootstrap.Modal(modalElement);
 
