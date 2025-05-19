@@ -3,8 +3,8 @@ import re
 import os
 app = Flask(
     __name__,
-    static_folder='../static',
-    template_folder='../templates'
+    static_folder='./static',
+    template_folder='./templates'
 )
 
 @app.route('/')
