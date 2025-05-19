@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request
 import re
-
-app = Flask(__name__)  # デフォルト設定でOK
+import os
+app = Flask(
+    __name__,
+    static_folder='../static',
+    template_folder='../templates'
+)
 
 @app.route('/')
 def home():
@@ -214,4 +218,4 @@ def question10():
     return render_template('question10.html')
 
 if __name__ == "__main__":
-    app.run(debug=True,port= 5015)
+    app.run(port=80)
