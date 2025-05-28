@@ -44,6 +44,4 @@ python main.py
 アプリケーションは `http://localhost:5000` で起動します。
 
 ## 作成者
-
-GitHubアカウントのみ紐づけておく。本名などは書かない。
 @riporippo
