@@ -2,16 +2,7 @@
 
 {% block content %}
 <div class="container mt-5 text-center">
-    <h1 class="mb-4">結果</h1>
-
-    {% if is_correct %}
-        <h2>正解</h2>
-        <p>素晴らしい！貴方は隅々までサイトを見ていますね！</p>
-    {% else %}
-        <h2>不正解</h2>
-        <p>もっと隅々まで見ろよカス，目ついてんのか</p>
-    {% endif %}
-
-    <a href="{{ url_for('home') }}" class="btn btn-primary mt-3">ホームへ</a>
+   <h1>safariには対応していません。<br>
+   Chromeで接続し直してください</h1>
 </div>
 {% endblock %}

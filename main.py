@@ -9,7 +9,11 @@ app = Flask(
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    user_agent = request.user_agent
+    if user_agent.browser == "safari":
+        return render_template('result.html')
+    else:
+        return render_template('index.html')
 
 @app.route('/osint')
 def osint():
