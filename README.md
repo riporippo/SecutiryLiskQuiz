@@ -15,15 +15,14 @@
 vercelにデプロイ済みですので，ローカルで実行せずとも遊ぶことが出来ます。  
 https://security-lisk-quiz.vercel.app/  
 
-ローカルで起動する場合は，リポジトリをpullし，
-
+ローカルで起動する場合は下記を参照してください
 
 ### インストール
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/username/project-name.git
-cd project-name
+git clone https://github.com/riporippo/SecurityDrill.git
+cd SecurityDrill
 
 # 仮想環境を作成・有効化
 
@@ -37,15 +36,12 @@ pip install -r requirements.txt
 
 ### 実行
 
-```bash# 環境変数を設定
-cp .env.example .env
-
 # アプリケーションを実行
 
 python main.py
 ```
 
-アプリケーションは `http://localhost:3000` で起動します。
+アプリケーションは `http://localhost:5000` で起動します。
 
 ## 作成者
 
