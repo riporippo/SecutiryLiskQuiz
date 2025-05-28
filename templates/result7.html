@@ -15,8 +15,23 @@
                         <p class="mb-0">{{ user_answer }}</p>
                         <p class="mb-3">
                         <div class="fw-bold mb-1 text-center">解説</div>
-                            <div class="mb-3 text-center">
-                                フィッシング：偽のウェブサイトやメールなどで個人情報をだまし取る手口です。<br>スキミング：カード情報を不正に読み取る手口です。<br>ブルートフォースアタック：パスワードなどを総当たりで試して突破しようとする攻撃です。
+                            <div class="mb-3 text-center table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr class="table-success">
+                                            <td>フィッシング</td>
+                                            <td>偽のウェブサイトやメールなどで個人情報をだまし取る手口です</td>
+                                        </tr>
+                                        <tr class="table-success">
+                                            <td>スキミング</td>
+                                            <td>カード情報を不正に読み取る手口です</td>
+                                        </tr>
+                                        <tr class="table-success">
+                                            <td>ブルートフォース</td>
+                                            <td>パスワードなどを総当たりで試して突破しようとする攻撃です。</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     {% else %}
@@ -29,8 +44,23 @@
                         <p class="mb-0">{{ correct_answer }}</p>
                         <p class="mb-3">
                             <div class="fw-bold mb-1 text-center">解説</div>
-                            <div class="mb-3 text-center">
-                                フィッシング：偽のウェブサイトやメールなどで個人情報をだまし取る手口です。<br>スキミング：カード情報を不正に読み取る手口です。<br>ブルートフォースアタック：パスワードなどを総当たりで試して突破しようとする攻撃です。
+                            <div class="mb-4 text-center table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr class="table-danger">
+                                            <td>フィッシング</td>
+                                            <td>偽のウェブサイトやメールなどで個人情報をだまし取る手口です</td>
+                                        </tr>
+                                        <tr class="table-danger">
+                                            <td>スキミング</td>
+                                            <td>カード情報を不正に読み取る手口です</td>
+                                        </tr>
+                                        <tr class="table-danger">
+                                            <td>ブルートフォース</td>
+                                            <td>パスワードなどを総当たりで試して突破しようとする攻撃です。</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     {% endif %}
