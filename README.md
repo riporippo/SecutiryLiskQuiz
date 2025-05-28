@@ -37,10 +37,9 @@ pip install -r requirements.txt
 ### 実行
 
 # アプリケーションを実行
-
+```
 python main.py
 ```
-
 アプリケーションは `http://localhost:5000` で起動します。
 
 ## 作成者
