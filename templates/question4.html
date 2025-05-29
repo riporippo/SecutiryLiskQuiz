@@ -16,6 +16,8 @@
 <div class="row justify-content-center mt-4">
     <div class="col-md-5">
         <form action="{{ url_for('result4') }}" method="POST">
+            <div id="result-message"></div>
+
             <div class="mb-3">
                 <label for="answer" class="form-label">見分けられる箇所を入力してください：</label>
                 <input type="text" class="form-control" id="answer" name="answer" required 
@@ -29,4 +31,5 @@
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/zoom.js') }}"></script>
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
 {% endblock %}

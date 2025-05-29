@@ -1,7 +1,9 @@
-document.addEventListener("DOMContentLoaded", function() {
+// zoom.js
+
+document.addEventListener("DOMContentLoaded", function () {
     const zoomableImages = document.querySelectorAll(".zoomable");
 
-    // モーダル用要素を作成・追加
+    // モーダル要素の作成
     const modal = document.createElement("div");
     modal.id = "image-modal";
     Object.assign(modal.style, {
@@ -20,59 +22,35 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     const modalImg = document.createElement("img");
+    modalImg.id = "modal-image";  // IDをつける
     Object.assign(modalImg.style, {
         maxWidth: "90%",
         maxHeight: "90%",
         userSelect: "none",
-        cursor: "move"
+        cursor: "default"
     });
 
     modal.appendChild(modalImg);
     document.body.appendChild(modal);
 
-    // 拡大画像をドラッグで動かすための処理
-    let isDragging = false;
-    let dragStartX, dragStartY, imgStartLeft, imgStartTop;
-
-    modalImg.addEventListener("mousedown", (e) => {
-        isDragging = true;
-        dragStartX = e.clientX;
-        dragStartY = e.clientY;
-        const rect = modalImg.getBoundingClientRect();
-        imgStartLeft = rect.left;
-        imgStartTop = rect.top;
-        modalImg.style.position = "relative";
-        modalImg.style.left = "0px";
-        modalImg.style.top = "0px";
-        e.preventDefault();
-    });
-
-    window.addEventListener("mouseup", () => {
-        isDragging = false;
-    });
-
-    window.addEventListener("mousemove", (e) => {
-        if (!isDragging) return;
-        const dx = e.clientX - dragStartX;
-        const dy = e.clientY - dragStartY;
-        modalImg.style.left = dx + "px";
-        modalImg.style.top = dy + "px";
-    });
-
-    // クリックでモーダル閉じる
-    modal.addEventListener("click", () => {
+    // モーダル背景クリックで閉じる
+    modal.addEventListener("click", (e) => {
+        if (e.target === modalImg) return; // 画像自体をクリックした場合は閉じない
         modal.style.display = "none";
     });
 
-    // 画像クリックで開く処理
+    // 画像クリックでモーダル開く
     zoomableImages.forEach(img => {
         img.style.cursor = "zoom-in";
         img.addEventListener("click", (e) => {
             e.stopPropagation();
             modalImg.src = img.src;
-            modalImg.style.left = "0px";
-            modalImg.style.top = "0px";
             modal.style.display = "flex";
+
+            // 判定機能が読み込まれていれば実行
+            if (typeof initClickGame === "function") {
+                initClickGame(modalImg);
+            }
         });
     });
 });
