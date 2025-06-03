@@ -9,8 +9,8 @@ app = Flask(
 
 @app.route('/')
 def home():
-    user_agent = request.user_agent
-    if user_agent.browser == "safari":
+    user_agent = request.user_agent.string
+    if user_agent.find("Safari"):
         return render_template('result.html')
     else:
         return render_template('index.html')
