@@ -22,10 +22,10 @@
                             <br>しかし、URLを確認することでフィッシングサイトかどうかを見分けることができます。</p>
                         <div class="row justify-content-center mt-4">
                             <div class="col-md-6 text-center">
-                                <img src="{{ url_for('static', filename='images/phishing-site.jpg') }}" class="img-fluid border" alt="画像1">
+                                <img src="{{ url_for('static', filename='images/phishing-site.jpg') }}" class="img-fluid border zoomable" alt="画像1">
                             </div>
                             <div class="col-md-6 text-center">
-                                <img src="{{ url_for('static', filename='images/no-phishing-site.jpg') }}" class="img-fluid border" alt="画像2">
+                                <img src="{{ url_for('static', filename='images/no-phishing-site.jpg') }}" class="img-fluid border zoomable" alt="画像2">
                             </div>
                         </div>
                     </div>
@@ -42,10 +42,10 @@
                             <br>しかし、URLを確認することでフィッシングサイトかどうかを見分けることができます。</p>
                         <div class="row justify-content-center mt-4">
                             <div class="col-md-6 text-center">
-                                <img src="{{ url_for('static', filename='images/phishing-site.jpg') }}" class="img-fluid border" alt="画像1">
+                                <img src="{{ url_for('static', filename='images/phishing-site.jpg') }}" class="img-fluid border zoomable" alt="画像1">
                             </div>
                             <div class="col-md-6 text-center">
-                                <img src="{{ url_for('static', filename='images/no-phishing-site.jpg') }}" class="img-fluid border" alt="画像2">
+                                <img src="{{ url_for('static', filename='images/no-phishing-site.jpg') }}" class="img-fluid border zoomable" alt="画像2">
                             </div>
                         </div>
                     </div>
@@ -108,4 +108,5 @@
         },3000);
     });
 </script>
-{% endblock %} 
+<script src="{{ url_for('static', filename='js/zoom.js') }}"></script>
+{% endblock %}

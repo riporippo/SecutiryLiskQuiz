@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request
 import re
-
-app = Flask(__name__)  # デフォルト設定でOK
+import os
+app = Flask(
+    __name__,
+    static_folder='./static',
+    template_folder='./templates'
+)
 
 @app.route('/')
 def home():
@@ -60,8 +64,9 @@ def result3():
 
 @app.route('/result4', methods=['POST'])
 def result4():
-    user_answer = request.form.get('answer')
-    pattern = r'(?=.*url|URL)(?=.*(異なる|違う|ない|)).*'
+    user_answer = request.form.get('answer').strip()
+    pattern = r'^(url|URL)$|(?=.*(url|URL))(?=.*(異なる|違う|ない|同じでない|同じではない)).*'
+    #r'(?=.*url|URL)(?=.*(異なる|違う|ない|)).*'
     # 正規表現で「url」と「異なる」または「違う」が含まれているかチェック
     is_correct = bool(re.search(pattern, user_answer))
     return render_template('result4.html', 
@@ -214,4 +219,4 @@ def question10():
     return render_template('question10.html')
 
 if __name__ == "__main__":
-    app.run(debug=True,port= 5015)
+    app.run()
