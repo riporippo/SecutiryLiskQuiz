@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("image-modal");
   const modalImg = document.getElementById("modal-image");
-  const resultBox = document.getElementById("result-message");
+  const resultBox = document.getElementById("user-answer");
+  const clickXInput = document.getElementById("clickXInput");
+  const clickYInput = document.getElementById("clickYInput");
 
   if (!modal || !modalImg || !resultBox) return;
 
@@ -28,8 +30,8 @@ const correctRects = [
     const scaleX = modalImg.naturalWidth / rect.width;
     const scaleY = modalImg.naturalHeight / rect.height;
 
-    const imageX = clickX * scaleX;
-    const imageY = clickY * scaleY;
+    const imageX = (clickX * scaleX).toFixed(0);
+    const imageY = (clickY * scaleY).toFixed(0);
 
     // 判定
       let found = false;
@@ -41,9 +43,13 @@ const correctRects = [
   }
 
     // 表示するマーク（○か×）と色
-    const mark = found ? "○" : "×";
-    const color = found ? "green" : "red";
-    resultBox.textContent = found ? "正解！" : "不正解...";
+    const mark = "○";
+    const color = "green";
+    resultBox.textContent = `X:${imageX}, Y:${imageY}`;
+    if (clickXInput && clickYInput){
+      clickXInput.value = imageX;
+      clickYInput.value = imageY;
+    }
     resultBox.style.color = color;
 
     // 表示用マークを追加（モーダル内に）

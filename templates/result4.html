@@ -11,10 +11,8 @@
                     {% if is_correct %}
                     <div class="alert alert-success text-center">
                         <h4 class="alert-heading mb-3">正解です！</h4>
-                        <div class="fw-bold mb-1">あなたの答え</div>
-                        <p class="mb-0">{{ user_answer }}</p>
                         <p class="mb-3">
-                        <div class="fw-bold mb-1">他の解答例</div>
+                        <div class="fw-bold mb-1">具体的には...</div>
                         <p class="mb-0">{{ correct_answer }}</p>
                         <p class="mb-3">
                         <div class="fw-bold mb-1">解説</div>
@@ -32,8 +30,6 @@
                     {% else %}
                     <div class="alert alert-danger text-center">
                         <h4 class="alert-heading mb-3">不正解です</h4>
-                        <div class="fw-bold mb-1">あなたの答え</div>
-                        <p class="mb-0">{{ user_answer }}</p>
                         <p class="mb-3">
                         <div class="fw-bold mb-1">正解</div>
                         <p class="mb-3">{{ correct_answer }}</p>

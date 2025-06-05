@@ -64,14 +64,17 @@ def result3():
 
 @app.route('/result4', methods=['POST'])
 def result4():
-    user_answer = request.form.get('answer').strip()
-    pattern = r'^(url|URL)$|(?=.*(url|URL))(?=.*(異なる|違う|ない|同じでない|同じではない)).*'
-    #r'(?=.*url|URL)(?=.*(異なる|違う|ない|)).*'
-    # 正規表現で「url」と「異なる」または「違う」が含まれているかチェック
-    is_correct = bool(re.search(pattern, user_answer))
+    click_x = int(request.form.get('click_x'))
+    click_y = int(request.form.get('click_y'))
+    x_in_rect = click_x >= 150 and click_x <= 150 + 350
+    y_in_rect = click_y >= 50 and click_y <= 50 + 55
+    if (x_in_rect and y_in_rect):
+        is_correct = True
+    else:
+        is_correct = False
     return render_template('result4.html', 
                          is_correct=is_correct,
-                         user_answer=user_answer,
+                         user_answer="",
                          correct_answer="urlが異なる")
 
 @app.route('/result5', methods=['POST'])
