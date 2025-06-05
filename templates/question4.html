@@ -17,9 +17,10 @@
     <div class="col-md-5">
         <form action="{{ url_for('result4') }}" method="POST">
             <div class="mb-3">
-                <label for="answer" class="form-label">見分けられる箇所を入力してください：</label>
-                <input type="text" class="form-control" id="answer" name="answer" required 
-                       placeholder="例：日本語がおかしい">
+                <label for="answer" class="form-label">見分けられる箇所をクリックしてください</label>
+                <div id="user-answer"></div>
+                <input type="hidden" id="clickXInput" name="click_x">
+                <input type="hidden" id="clickYInput" name="click_y">
             </div>
             <button type="submit" class="btn btn-primary">送信</button>
         </form>
@@ -29,4 +30,5 @@
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/zoom.js') }}"></script>
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
 {% endblock %}
