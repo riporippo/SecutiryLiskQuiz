@@ -10,10 +10,12 @@ app = Flask(
 @app.route('/')
 def home():
     user_agent = request.user_agent.string
-    if user_agent.find("Safari"):
+    if user_agent.find("Chrome"):
+        return render_template('index.html')
+    elif user_agent.find("safari"):
         return render_template('result.html')
     else:
-        return render_template('index.html')
+        return render_template("index.html")
 
 @app.route('/osint')
 def osint():
