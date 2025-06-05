@@ -106,3 +106,8 @@ body {
 .modal-backdrop.show {
   background-color: transparent;
 }
+
+.button{
+  display: block;
+  margin-top: 50px; 
+}
