@@ -127,15 +127,15 @@ def result7():
     
     # 選択された答えの説明を設定
     answer_text = {
-        1: "フィッシング",
-        2: "スキミング",
-        3: "ブルートフォースアタック",
-        4: "ショルダーハッキング"
+        1: "画面の明るさを下げて、後ろから見えにくくする",
+        2: "複雑なパスワードを設定しておく",
+        3: "パスワードを素早く入力する",
+        4: "ログインする際に、後ろに人がいないか確認し、周りに見えないように入力する"
     }.get(user_answer, "不明")
     return render_template('result7.html', 
                          is_correct=is_correct,
                          user_answer=answer_text,
-                         correct_answer="ショルダーハッキング")
+                         correct_answer="ログインする際に、後ろに人がいないか確認し、周りに見えないように入力する")
 
 @app.route('/result8', methods=['POST'])
 def result8():
